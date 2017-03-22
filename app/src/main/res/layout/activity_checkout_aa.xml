@@ -7,7 +7,8 @@
     android:paddingTop="8dp"
     tools:context="android.rahardyan.checkoutaa.checkout.ui.checkout.CheckoutAAActivity">
     <ExpandableListView
-        android:id="@+id/item_listview"
+        android:background="@android:color/white"
+        android:id="@+id/checkout_listview"
         android:layout_height="match_parent"
         android:layout_width="match_parent"/>
 </RelativeLayout>
