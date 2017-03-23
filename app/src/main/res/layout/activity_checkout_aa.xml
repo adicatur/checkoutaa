@@ -1,14 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="8dp"
     tools:context="android.rahardyan.checkoutaa.checkout.ui.checkout.CheckoutAAActivity">
-    <ExpandableListView
-        android:background="@android:color/white"
-        android:id="@+id/checkout_listview"
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_width="match_parent"/>
-</RelativeLayout>
+        android:paddingTop="8dp">
+
+        <ExpandableListView
+
+            android:id="@+id/checkout_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white" />
+
+        <RelativeLayout
+            android:id="@+id/checkout_prescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/checkout_listview"
+            android:layout_marginTop="33dp"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/icon_k"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="73dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_action_yinyang" />
+
+            <TextView
+                android:id="@+id/title_prescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@+id/icon_k"
+                android:text="@string/title_prescription"
+                android:textSize="12sp" />
+
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_below="@+id/title_prescription"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="29dp"
+                android:background="@drawable/ic_camera"
+                android:backgroundTint="@color/image_gray" />
+
+            <TextView
+                android:id="@+id/upload_prescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_prescription"
+                android:layout_marginLeft="73dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/upload_prescription"
+                android:textSize="14sp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/checkout_add_delivery_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/checkout_prescription"
+            android:layout_marginTop="28dp"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/image_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="19dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/ic_insert_drive_file"
+                android:backgroundTint="@color/image_gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@id/image_note"
+                android:paddingLeft="32dp"
+                android:text="ADD DELIVERY NOTES"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/price_prescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/checkout_add_delivery_note"
+            android:layout_marginTop="28dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/title_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="19dp"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="16dp"
+                android:text="Price summary"
+                android:textColor="@color/text_gray" />
+
+            <TextView
+                android:id="@+id/title_subtotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_price"
+                android:layout_marginLeft="17dp"
+                android:text="Sub Total"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/value_subtotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_price"
+                android:layout_marginRight="25dp"
+                android:gravity="right"
+                android:text="Rp. 450.000" />
+
+
+            <TextView
+                android:id="@+id/title_delivery_fee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/value_subtotal"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="20dp"
+                android:text="Delivery Fee"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/value_delivery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_subtotal"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="20dp"
+                android:gravity="right"
+                android:text="5.000" />
+
+            <TextView
+                android:id="@+id/title_diskon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/value_delivery"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="20dp"
+                android:text="Diskon"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/value_diskon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_delivery_fee"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="20dp"
+                android:gravity="right"
+                android:text="-10.000" />
+
+            <View
+                android:id="@+id/line_price"
+                android:layout_width="fill_parent"
+                android:layout_height="3dp"
+                android:layout_below="@id/value_diskon"
+                android:layout_marginBottom="11dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/line_gray" />
+
+            <TextView
+                android:id="@+id/title_grandtotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line_price"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="11dp"
+                android:text="Grand Total"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/value_grandtotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line_price"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="11dp"
+                android:gravity="right"
+                android:text="250.000" />
+
+            <View
+                android:id="@+id/line_payment"
+                android:layout_width="fill_parent"
+                android:layout_height="3dp"
+                android:layout_below="@id/value_grandtotal"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="25dp"
+                android:background="@color/line_gray" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</android.support.v4.widget.NestedScrollView>
+
+
+

@@ -29,6 +29,7 @@ public class CheckoutAAActivity extends AppCompatActivity {
         checkoutList.expandGroup(0);
         checkoutAdapter.notifyDataSetChanged();
 
+
     }
 
     private List<String> generateDummyData() {
