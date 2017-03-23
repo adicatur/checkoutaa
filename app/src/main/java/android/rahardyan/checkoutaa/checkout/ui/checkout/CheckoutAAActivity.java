@@ -1,8 +1,12 @@
 package android.rahardyan.checkoutaa.checkout.ui.checkout;
 
 import android.rahardyan.checkoutaa.R;
+import android.rahardyan.checkoutaa.checkout.data.model.ItemGroup;
+import android.rahardyan.checkoutaa.checkout.data.model.Medicine;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.ExpandableListView;
 
@@ -10,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CheckoutAAActivity extends AppCompatActivity {
-    private ExpandableListView checkoutList;
+    private RecyclerView checkoutList;
     private CheckoutAdapter checkoutAdapter;
 
     @Override
@@ -22,23 +26,37 @@ public class CheckoutAAActivity extends AppCompatActivity {
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        checkoutList = (ExpandableListView) findViewById(R.id.checkout_listview);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        checkoutList = (RecyclerView) findViewById(R.id.checkout_listview);
 
-        checkoutAdapter = new CheckoutAdapter(this, generateDummyData());
+        checkoutAdapter = new CheckoutAdapter(generateDummyData());
+        checkoutList.setLayoutManager(layoutManager);
         checkoutList.setAdapter(checkoutAdapter);
-        checkoutList.expandGroup(0);
-        checkoutAdapter.notifyDataSetChanged();
-
 
     }
 
-    private List<String> generateDummyData() {
-        List<String> listCheckout = new ArrayList<>();
-        listCheckout.add("item 1");
-        listCheckout.add("item 2");
-        listCheckout.add("item 3");
+    private List<ItemGroup> generateDummyData() {
+        List<ItemGroup> listCheckoutGroup = new ArrayList<>();
+        List<Medicine> listCheckout = new ArrayList<>();
 
-        return listCheckout;
+
+        Medicine medicine1 = new Medicine();
+        medicine1.setName("paramex");
+        Medicine medicine2 = new Medicine();
+        medicine2.setName("panadol");
+        Medicine medicine3 = new Medicine();
+        medicine3.setName("bodrex");
+
+        listCheckout.add(medicine1);
+        listCheckout.add(medicine2);
+        listCheckout.add(medicine3);
+
+
+        listCheckoutGroup.add(new ItemGroup("Item", listCheckout));
+
+
+        return listCheckoutGroup;
     }
 
 //    if need to override the actionbar back button remove this if no need
@@ -50,15 +68,5 @@ public class CheckoutAAActivity extends AppCompatActivity {
                 break;
         }
         return true;
-    }
-
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            checkoutList.setIndicatorBounds(checkoutList.getRight()- 40, checkoutList.getWidth());
-        } else {
-            checkoutList.setIndicatorBoundsRelative(checkoutList.getRight()- 100, checkoutList.getWidth());
-        }
     }
 }
