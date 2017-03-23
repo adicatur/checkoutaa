@@ -7,4 +7,6 @@
     <color name="text_gray">#61000000</color>
     <color name="image_gray">#757575</color>
     <color name="line_gray">#f5f4f4</color>
+    <color name="cash_gray">#7d7d7d</color>
+    <color name="btn_confrim">#e0004d</color>
 </resources>

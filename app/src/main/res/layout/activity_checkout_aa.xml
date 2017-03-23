@@ -13,7 +13,6 @@
         android:paddingTop="8dp">
 
         <ExpandableListView
-
             android:id="@+id/checkout_listview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -131,7 +130,8 @@
                 android:layout_below="@+id/title_price"
                 android:layout_marginRight="25dp"
                 android:gravity="right"
-                android:text="Rp. 450.000" />
+                android:text="Rp. 450.000"
+                android:textSize="16sp" />
 
 
             <TextView
@@ -142,7 +142,7 @@
                 android:layout_marginLeft="17dp"
                 android:layout_marginTop="20dp"
                 android:text="Delivery Fee"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/value_delivery"
@@ -152,7 +152,8 @@
                 android:layout_marginRight="25dp"
                 android:layout_marginTop="20dp"
                 android:gravity="right"
-                android:text="5.000" />
+                android:text="5.000"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/title_diskon"
@@ -162,7 +163,7 @@
                 android:layout_marginLeft="17dp"
                 android:layout_marginTop="20dp"
                 android:text="Diskon"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/value_diskon"
@@ -172,7 +173,8 @@
                 android:layout_marginRight="25dp"
                 android:layout_marginTop="20dp"
                 android:gravity="right"
-                android:text="-10.000" />
+                android:text="-10.000"
+                android:textSize="14sp" />
 
             <View
                 android:id="@+id/line_price"
@@ -202,7 +204,8 @@
                 android:layout_marginRight="25dp"
                 android:layout_marginTop="11dp"
                 android:gravity="right"
-                android:text="250.000" />
+                android:text="250.000"
+                android:textSize="16sp" />
 
             <View
                 android:id="@+id/line_payment"
@@ -213,8 +216,40 @@
                 android:layout_marginTop="25dp"
                 android:background="@color/line_gray" />
 
+            <TextView
+                android:id="@+id/mode_of_payment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line_payment"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Made of Payment"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/cash_on_delivery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line_payment"
+                android:layout_marginBottom="17dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="16dp"
+                android:gravity="right"
+                android:text="Cash On Delivery"
+                android:textColor="@color/cash_gray"
+                android:textSize="14sp" />
+
         </RelativeLayout>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_below="@id/price_prescription"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/btn_confrim"
+            android:text="CONFIRM"
+            android:textColor="@color/white" />
     </RelativeLayout>
 
 
