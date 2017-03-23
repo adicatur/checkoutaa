@@ -82,7 +82,7 @@ public class CheckoutAdapter extends ExpandableRecyclerViewAdapter<CheckoutAdapt
 
         public ChildViewHolder(View itemView) {
             super(itemView);
-            medicineName = (TextView) itemView.findViewById(R.id.tv_item_checkout);
+            medicineName = (TextView) itemView.findViewById(R.id.drugs_name);
         }
 
         public void setView(Medicine medicine) {
