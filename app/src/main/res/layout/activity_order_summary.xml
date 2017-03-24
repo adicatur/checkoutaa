@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardview_order_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <View
+                android:id="@+id/line_order_0"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginRight="48dp"
+                android:layout_marginTop="35dp"
+                android:background="@color/colorPrimary"/>
+            <View
+                android:visibility="gone"
+                android:id="@+id/line_order_1"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginRight="178dp"
+                android:layout_marginTop="35dp"
+                android:background="@color/colorPrimary"/>
+            <View
+                android:visibility="gone"
+                android:id="@+id/line_order_2"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginLeft="178dp"
+                android:layout_marginRight="48dp"
+                android:layout_marginTop="35dp"
+                android:background="@color/colorPrimary"/>
+            <ImageView
+                android:id="@+id/cover_circle_place"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_marginLeft="47dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/ic_done"
+                android:background="@drawable/circle_red" />
+
+            <ImageView
+                android:id="@+id/cover_circle_pickedup"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/ic_more_horiz"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/circle_red" />
+
+            <ImageView
+                android:id="@+id/cover_circle_delivered"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="47dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/circle_red" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <ImageView
+                android:id="@+id/circle_place"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/ic_done"
+                android:background="@drawable/circle_red" />
+
+            <ImageView
+                android:id="@+id/circle_pickedup"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_more_horiz"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/circle_pink" />
+
+            <ImageView
+                android:id="@+id/circle_delivered"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="48dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/circle_white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:gravity="center"
+                android:text="Picked Up" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/circle_place"
+                android:layout_marginLeft="38dp"
+                android:layout_marginTop="21dp"
+                android:text="Placed" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/circle_delivered"
+                android:layout_marginBottom="19dp"
+                android:layout_marginRight="35dp"
+                android:layout_marginTop="21dp"
+                android:gravity="right"
+                android:text="Delivered" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardview_order_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cardview_order_bar">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:id="@+id/title_orderid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="20dp"
+                android:text="ORDER ID" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="17dp"
+                android:layout_toRightOf="@id/title_orderid"
+                android:text="SZRT5674"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="17dp"
+                android:gravity="right"
+                android:text="IN PROCESS" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_orderid"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="15dp"
+                android:text="01 Mar 2017, 7:33 AM" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/checkout_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cardview_order_id"
+        android:background="@android:color/white" />
+
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="1dp"
+        app:cardCornerRadius="4dp"
+        android:id="@+id/cardview_suborder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/order_listview"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/title_subtotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="72dp"
+            android:layout_marginTop="22dp"
+            android:text="Sub Total "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/value_subtotal_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="23dp"
+            android:layout_marginTop="22dp"
+            android:gravity="right"
+            android:text="Rp.450.000"
+            android:textSize="16sp" />
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cardview_suborder"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18dp"
+            android:layout_marginLeft="24.5dp"
+            android:layout_marginTop="19dp"
+            android:text="CANCEL ORDER"
+            android:textColor="@color/colorPrimary" />
+
+    </android.support.v7.widget.CardView>
+</RelativeLayout>
