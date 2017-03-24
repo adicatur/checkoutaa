@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 /**
- * Created by rahardyan on 24/03/17.
+ * Created by rahardyan on 22/03/17.
  */
 
 public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.MedicineViewHolder> {

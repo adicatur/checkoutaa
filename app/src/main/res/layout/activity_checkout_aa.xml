@@ -23,8 +23,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/checkout_listview"
-            android:layout_marginTop="33dp"
+            android:layout_marginTop="1dp"
             android:background="@color/white">
+            <View
+                android:background="@color/line_gray"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
 
             <ImageView
                 android:id="@+id/icon_k"
@@ -245,8 +249,7 @@
             android:layout_width="match_parent"
             android:layout_height="39dp"
             android:layout_below="@id/price_prescription"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:background="@color/btn_confrim"
             android:text="CONFIRM"
             android:textColor="@color/white" />
