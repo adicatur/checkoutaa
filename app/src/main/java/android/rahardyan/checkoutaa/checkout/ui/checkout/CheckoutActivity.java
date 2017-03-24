@@ -1,19 +1,21 @@
 package android.rahardyan.checkoutaa.checkout.ui.checkout;
 
 import android.rahardyan.checkoutaa.R;
-import android.rahardyan.checkoutaa.checkout.data.model.ItemGroup;
 import android.rahardyan.checkoutaa.checkout.data.model.Medicine;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
-import android.widget.ExpandableListView;
+import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
 
-public class CheckoutAAActivity extends AppCompatActivity {
+public class CheckoutActivity extends AppCompatActivity {
     private RecyclerView checkoutList;
     private CheckoutAdapter checkoutAdapter;
 
@@ -21,25 +23,32 @@ public class CheckoutAAActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout_aa);
+        targetView();
+        initActionBar();
+        initRecyclerView();
+    }
 
+    private void targetView() {
+        checkoutList = (RecyclerView) findViewById(R.id.checkout_listview);
+    }
+
+    private void initActionBar() {
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
+    }
 
+    private void initRecyclerView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        checkoutList = (RecyclerView) findViewById(R.id.checkout_listview);
-
         checkoutAdapter = new CheckoutAdapter(generateDummyData());
         checkoutList.setLayoutManager(layoutManager);
         checkoutList.setAdapter(checkoutAdapter);
-
     }
 
-    private List<ItemGroup> generateDummyData() {
-        List<ItemGroup> listCheckoutGroup = new ArrayList<>();
+//    temporary use dummy data for checkout item
+    private List<Medicine> generateDummyData() {
         List<Medicine> listCheckout = new ArrayList<>();
-
 
         Medicine medicine1 = new Medicine();
         medicine1.setName("paramex");
@@ -52,11 +61,7 @@ public class CheckoutAAActivity extends AppCompatActivity {
         listCheckout.add(medicine2);
         listCheckout.add(medicine3);
 
-
-        listCheckoutGroup.add(new ItemGroup("Item", listCheckout));
-
-
-        return listCheckoutGroup;
+        return listCheckout;
     }
 
 //    if need to override the actionbar back button remove this if no need

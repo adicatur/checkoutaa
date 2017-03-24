@@ -2,91 +2,65 @@ package android.rahardyan.checkoutaa.checkout.ui.checkout;
 
 import android.rahardyan.checkoutaa.R;
 import android.rahardyan.checkoutaa.checkout.data.model.Medicine;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter;
-import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
 import java.util.List;
 
 /**
- * Created by rahardyan on 22/03/17.
+ * Created by rahardyan on 24/03/17.
  */
 
-public class CheckoutAdapter extends ExpandableRecyclerViewAdapter<CheckoutAdapter.GroupViewHolder, CheckoutAdapter.ChildViewHolder> {
+public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.MedicineViewHolder> {
+    private List<Medicine> medicines;
+    private OnItemClickListener onItemClickListener;
+    private RecyclerView recyclerView;
 
-    public CheckoutAdapter(List<? extends ExpandableGroup> groups) {
-        super(groups);
+    public CheckoutAdapter(List<Medicine> medicines, RecyclerView recyclerView, OnItemClickListener onItemClickListener) {
+        this.medicines = medicines;
+        this.onItemClickListener = onItemClickListener;
+        this.recyclerView = recyclerView;
+    }
+
+    public CheckoutAdapter(List<Medicine> medicines) {
+        this.medicines = medicines;
     }
 
     @Override
-    public GroupViewHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.item_checkout_group, parent, false);
-        return new GroupViewHolder(view);
+    public MedicineViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_checkout, parent, false);
+        return new CheckoutAdapter.MedicineViewHolder(view);
     }
 
     @Override
-    public ChildViewHolder onCreateChildViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.item_checkout, parent, false);
-        return new ChildViewHolder(view);
+    public void onBindViewHolder(MedicineViewHolder holder, int position) {
+        holder.tvMedicineName.setText(medicines.get(position).getName());
     }
 
     @Override
-    public void onBindChildViewHolder(ChildViewHolder holder, int flatPosition, ExpandableGroup group, int childIndex) {
-        final Medicine medicine = (Medicine) group.getItems().get(childIndex);
-        holder.setView(medicine);
+    public int getItemCount() {
+        return medicines.size();
     }
 
-    @Override
-    public void onBindGroupViewHolder(GroupViewHolder holder, int flatPosition, ExpandableGroup group) {
-        holder.setGenreTitle(group);
-    }
-
-    public class GroupViewHolder extends com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder {
-
-        private TextView genreTitle;
-        private ImageView expandIndicator;
-
-        public GroupViewHolder(View itemView) {
-            super(itemView);
-            genreTitle = (TextView) itemView.findViewById(R.id.tv_header_list_checkout);
-            expandIndicator = (ImageView) itemView.findViewById(R.id.indicator);
-        }
-
-        public void setGenreTitle(ExpandableGroup group) {
-            genreTitle.setText(group.getTitle());
-        }
-
-        @Override
-        public void expand() {
-            super.expand();
-            expandIndicator.setImageResource(android.R.drawable.arrow_up_float);
-        }
-
-        @Override
-        public void collapse() {
-            super.collapse();
-            expandIndicator.setImageResource(android.R.drawable.arrow_down_float);
+    public class MedicineViewHolder extends RecyclerView.ViewHolder {
+        TextView tvMedicineName;
+        public MedicineViewHolder(View view) {
+            super(view);
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int itemPositoin = recyclerView.getChildLayoutPosition(view);
+                    onItemClickListener.onClick(medicines.get(itemPositoin));
+                }
+            });
+            tvMedicineName = (TextView) view.findViewById(R.id.drugs_name);
         }
     }
 
-    public class ChildViewHolder extends com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder {
-
-        private TextView medicineName;
-
-        public ChildViewHolder(View itemView) {
-            super(itemView);
-            medicineName = (TextView) itemView.findViewById(R.id.drugs_name);
-        }
-
-        public void setView(Medicine medicine) {
-            medicineName.setText(medicine.getName());
-        }
+    interface OnItemClickListener {
+        void onClick(Medicine medicine);
     }
 }
