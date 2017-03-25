@@ -192,7 +192,7 @@
         android:id="@+id/cardview_suborder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/order_listview"
+        android:layout_below="@+id/checkout_listview"
         android:background="@color/white">
 
         <TextView

@@ -248,6 +248,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="39dp"
+            android:id="@+id/btn_confirm"
             android:layout_below="@id/price_prescription"
             android:layout_marginTop="10dp"
             android:background="@color/btn_confrim"

@@ -56,7 +56,7 @@ public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.Medici
                     onItemClickListener.onClick(medicines.get(itemPositoin));
                 }
             });
-            tvMedicineName = (TextView) view.findViewById(R.id.drugs_name);
+            tvMedicineName = (TextView) view.findViewById(R.id.medicine_name);
         }
     }
 
