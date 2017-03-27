@@ -1,7 +1,6 @@
 package android.rahardyan.checkoutaa.checkout.ui.checkout;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.rahardyan.checkoutaa.R;
 import android.rahardyan.checkoutaa.checkout.data.model.Medicine;
@@ -12,7 +11,6 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.vansuita.pickimage.bean.PickResult;
@@ -20,33 +18,14 @@ import com.vansuita.pickimage.bundle.PickSetup;
 import com.vansuita.pickimage.dialog.PickImageDialog;
 import com.vansuita.pickimage.listeners.IPickResult;
 
-import java.io.File;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CheckoutActivity extends AppCompatActivity {
-    private static final int ACTIVITY_SELECT_IMAGE = 123;
-    private static final int TAKE_PITCTURE = 0;
-    private static final String TAG = CheckoutActivity.class.getSimpleName();
-    private static final int PICK_IMAGE = 1;
     private RecyclerView checkoutList;
     private CheckoutAdapter checkoutAdapter;
     private Button btnSubmit;
     private RelativeLayout uploadImage;
-    private android.content.Context context;
-
-    //test
-    private ImageView imageview;
-    private Button btnSelectImage;
-    private Bitmap bitmap;
-    private File destination = null;
-    private InputStream inputStreamImg;
-    private String imgPath = null;
-    private final int PICK_IMAGE_CAMERA = 1, PICK_IMAGE_GALLERY = 2;
-
-    public CheckoutActivity() {
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +35,6 @@ public class CheckoutActivity extends AppCompatActivity {
         initActionBar();
         initRecyclerView();
         initUploadPres();
-
     }
 
     private void initUploadPres() {
