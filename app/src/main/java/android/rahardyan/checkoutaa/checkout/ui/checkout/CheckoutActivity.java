@@ -1,26 +1,52 @@
 package android.rahardyan.checkoutaa.checkout.ui.checkout;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.rahardyan.checkoutaa.R;
 import android.rahardyan.checkoutaa.checkout.data.model.Medicine;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
+import com.vansuita.pickimage.bean.PickResult;
+import com.vansuita.pickimage.bundle.PickSetup;
+import com.vansuita.pickimage.dialog.PickImageDialog;
+import com.vansuita.pickimage.listeners.IPickResult;
+
+import java.io.File;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
 
 public class CheckoutActivity extends AppCompatActivity {
+    private static final int ACTIVITY_SELECT_IMAGE = 123;
+    private static final int TAKE_PITCTURE = 0;
+    private static final String TAG = CheckoutActivity.class.getSimpleName();
+    private static final int PICK_IMAGE = 1;
     private RecyclerView checkoutList;
     private CheckoutAdapter checkoutAdapter;
     private Button btnSubmit;
+    private RelativeLayout uploadImage;
+    private android.content.Context context;
+
+    //test
+    private ImageView imageview;
+    private Button btnSelectImage;
+    private Bitmap bitmap;
+    private File destination = null;
+    private InputStream inputStreamImg;
+    private String imgPath = null;
+    private final int PICK_IMAGE_CAMERA = 1, PICK_IMAGE_GALLERY = 2;
+
+    public CheckoutActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +55,41 @@ public class CheckoutActivity extends AppCompatActivity {
         targetView();
         initActionBar();
         initRecyclerView();
+        initUploadPres();
+
+    }
+
+    private void initUploadPres() {
+        uploadImage = (RelativeLayout) findViewById(R.id.checkout_prescription);
+        uploadImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PickImageDialog.build(new PickSetup())
+                        .setOnPickResult(new IPickResult() {
+                            @Override
+                            public void onPickResult(PickResult r) {
+                                if (r.getError() == null) {
+                                    //If you want the Uri.
+                                    //Mandatory to refresh image from Uri.
+                                    //getImageView().setImageURI(null);
+
+                                    //Setting the real returned image.
+                                    //getImageView().setImageURI(r.getUri());
+
+                                    //If you want the Bitmap.
+//                                   getImageView().setImageBitmap(r.getBitmap());
+
+                                    //Image path
+                                    Log.d("get", "" + r.getPath());
+                                } else {
+                                    //Handle possible errors
+                                    //TODO: do what you have to do with r.getError();
+                                    r.getError();
+                                }
+                            }
+                        }).show(getSupportFragmentManager());
+            }
+        });
     }
 
     private void targetView() {
@@ -57,7 +118,7 @@ public class CheckoutActivity extends AppCompatActivity {
         checkoutList.setAdapter(checkoutAdapter);
     }
 
-//    temporary use dummy data for checkout item
+    //    temporary use dummy data for checkout item
     private List<Medicine> generateDummyData() {
         List<Medicine> listCheckout = new ArrayList<>();
 
@@ -75,7 +136,8 @@ public class CheckoutActivity extends AppCompatActivity {
         return listCheckout;
     }
 
-//    if need to override the actionbar back button remove this if no need
+
+    //    if need to override the actionbar back button remove this if no need
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
