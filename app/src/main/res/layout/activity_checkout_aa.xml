@@ -36,7 +36,7 @@
                 android:layout_height="10dp"
                 android:layout_marginLeft="73dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/ic_action_yinyang" />
+                android:background="@drawable/i_prescription" />
 
             <TextView
                 android:id="@+id/title_prescription"
@@ -50,13 +50,12 @@
 
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="14dp"
+                android:layout_height="13dp"
                 android:layout_below="@+id/title_prescription"
                 android:layout_marginBottom="12dp"
                 android:layout_marginLeft="29dp"
-                android:background="@drawable/ic_camera"
-                android:backgroundTint="@color/image_gray" />
+                android:background="@drawable/camera_alt" />
 
             <TextView
                 android:id="@+id/upload_prescription"
@@ -81,22 +80,24 @@
 
             <ImageView
                 android:id="@+id/image_note"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="10dp"
+                android:layout_height="13dp"
                 android:layout_marginBottom="19dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/ic_insert_drive_file"
-                android:backgroundTint="@color/image_gray" />
+                android:background="@drawable/drive_file" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_toRightOf="@id/image_note"
-                android:paddingLeft="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_toRightOf="@+id/image_note"
                 android:text="ADD DELIVERY NOTES"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:id="@+id/textView"
+                android:layout_alignBottom="@+id/image_note"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
 
         </RelativeLayout>
 
