@@ -1,5 +1,6 @@
 package android.rahardyan.checkoutaa.checkout.ui.checkout;
 
+import android.content.Intent;
 import android.rahardyan.checkoutaa.R;
 import android.rahardyan.checkoutaa.checkout.data.model.Medicine;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ import java.util.Timer;
 public class CheckoutActivity extends AppCompatActivity {
     private RecyclerView checkoutList;
     private CheckoutAdapter checkoutAdapter;
+    private Button btnSubmit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,14 @@ public class CheckoutActivity extends AppCompatActivity {
 
     private void targetView() {
         checkoutList = (RecyclerView) findViewById(R.id.checkout_listview);
+        btnSubmit = (Button) findViewById(R.id.btn_confirm);
+
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CheckoutActivity.this, OrderSummaryAAActivity.class));
+            }
+        });
     }
 
     private void initActionBar() {
